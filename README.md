@@ -1,118 +1,103 @@
-Here’s the translation of your text to English:  
+# React + Vite + Tailwind CSS Project
 
----
+A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
 
-# Portfolio V5  
-Hello everyone!  
-Let me introduce myself, I’m Eki Zulfar Rachman. On this occasion, I’d like to share the portfolio website project that I’ve developed.  
+## 🚀 Features
 
-**Tech Stack used:**  
-- ReactJS  
-- Tailwind CSS  
-- AOS  
-- Firebase  
-- Framer Motion  
-- Lucide  
-- Material UI  
-- SweetAlert2  
+- **React 19** - React version with improved rendering and concurrent features
+- **Vite** - Lightning-fast build tool and development server
+- **TailwindCSS** - Utility-first CSS framework with extensive customization
+- **React Router** - Declarative routing for React applications
 
-**Website Link:**  
-[https://www.eki.my.id/](https://www.eki.my.id/)  
+## 📋 Prerequisites
 
-We would appreciate it if you decide to use this project. Please include credit when using it. Thank you! 🙏  
+- Node.js (v14.x or higher)
+- npm or yarn
 
----
 
-# Tutorial: Running the Project  
+## 🛠️ Installation
 
-Here’s a simple guide to run this project.  
+1. Install dependencies:
+  ```bash
+  npm install
+  # or
+  yarn install
+  ```
 
-## Prerequisites  
+2. Start the server:
+  ```bash
+  npm run start
+  # or
+  yarn start
+  ```
 
-Ensure that you have already installed:  
-- **Node.js**  
+## 📁 Project Structure
 
----
+```
+/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/           # Page components
+│   ├── styles/          # Global styles and Tailwind configuration
+│   ├── App.jsx          # Main application component
+│   ├── main.jsx         # Application entry point
+│   └── Routes.jsx       # Application routes
+├── index.html           # HTML template
+├── package.json         # Project dependencies and scripts
+├── postcss.config.js    # PostCSS configuration for Tailwind
+├── tailwind.config.js   # Tailwind CSS configuration
+├── vite.config.js       # Vite configuration
+```
 
-## Steps to Run the Project  
+## 🧩 Adding Routes
 
-1. **Download this project:**  
+To add new routes to the application, update the `Routes.jsx` file:
 
-   ```bash  
-   git clone https://github.com/EkiZR/Portofolio_V5.git  
-   ```  
+```jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-2. **Install all dependencies:**  
+// Import page components
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
-   ```bash  
-   npm install  
-   ```  
-   Or use:  
+const AppRoutes = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-   ```bash  
-   `npm install --legacy-peer-deps`  
-   ```  
+export default AppRoutes;
+```
 
-3. **Run the project:**  
+## 🎨 Styling
 
-   ```bash  
-   npm run dev  
-   ```  
+This project uses Tailwind CSS for styling. The configuration includes:
 
-4. **Open in browser:**  
+- Utility-first approach for rapid development
+- Custom theme configuration
+- Responsive design utilities
+- PostCSS and Autoprefixer integration
 
-   Access the application through the link displayed in your terminal.  
+## 📦 Deployment
 
----
+Build the application for production:
 
-## Creating a Production Build  
+```bash
+npm run build
+```
 
-To create a production-ready build:  
+## 🙏 Acknowledgments
 
-1. Run the build command:  
+- Built with [Rocket.new
+](https: //rocket.new)
+- Powered by React and Vite
+- Styled with Tailwind CSS
 
-   ```bash  
-   npm run build  
-   ```  
-
-2. The build files will be saved in the `dist` folder. You can upload this folder to your hosting server.  
-
----
-
-## Notes  
-
-If you encounter issues while running the project, ensure that:  
-- Node.js is correctly installed.  
-- You’re in the correct project directory.  
-- All dependencies are installed without errors.  
-
----
-
-## Firebase Configuration  
-
-To configure Firebase for this project, follow these steps:  
-
-1. **Add Firebase to the Project:**  
-   - Go to the [Firebase Console](https://console.firebase.google.com/).  
-   - Create a new project or use an existing one.  
-
-2. **Enable Firestore Database:**  
-   - Create a database.  
-
-3. **Go to Project Settings:**  
-   - Click the settings icon.  
-   - Copy the Firebase configuration.  
-
-4. **Go to Rules:**  
-   - Set the rules to `true`.  
-
-5. **Adjust the Collection Structure:**  
-   - Set up the collections as shown in the following images:  
-
-   ![Collection Structure Example 1](https://github.com/user-attachments/assets/38580122-08a4-4499-a8fd-0f253652a239)  
-   ![Collection Structure Example 2](https://github.com/user-attachments/assets/d563d7ad-f1ab-46ff-8185-640dcebd0363)  
-
-6. **Update `firebase.js` and `firebase-comment.js` Files:**  
-   - Replace the `firebaseConfig` content with your Firebase configuration.  
-
----
+Built with ❤️ on Rocket.new

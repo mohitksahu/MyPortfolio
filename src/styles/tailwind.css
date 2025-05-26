@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-purple: #c778dd;
+    --primary-dark: #282c33;
+    
+    /* Text Colors */
+    --text-white: #ffffff;
+    --text-gray: #abb2bf;
+    
+    /* Border Colors */
+    --border-gray: #abb2bf;
+  }
+  
+  body {
+    @apply bg-[#282c33] font-fira-code;
+  }
+}
+
+@layer utilities {
+  .bg-primary-purple {
+    background-color: var(--primary-purple);
+  }
+  
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+  
+  .text-primary-white {
+    color: var(--text-white);
+  }
+  
+  .text-primary-gray {
+    color: var(--text-gray);
+  }
+  
+  .border-primary-gray {
+    border-color: var(--border-gray);
+  }
+}
