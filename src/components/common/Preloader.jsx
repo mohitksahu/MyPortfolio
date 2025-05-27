@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const Preloader = ({ onLoadComplete }) => {
     const [typingComplete, setTypingComplete] = useState(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
-    const [showCursor, setShowCursor] = useState(true);    const [text, setText] = useState('');
+    const [showCursor, setShowCursor] = useState(true); const [text, setText] = useState('');
     const fullText = `const portfolio = {\n  name: "Mohit Kumar Sahu",\n  skills: ["Web Dev", "AI", "ML"],\n  loading: true\n};`;
 
     const loadingTextRef = useRef(null);    // Typing animation effect
@@ -57,7 +57,7 @@ const Preloader = ({ onLoadComplete }) => {
         }
 
         return () => clearInterval(progressInterval);
-    }, [typingComplete, onLoadComplete]);    const formatCode = (code) => {
+    }, [typingComplete, onLoadComplete]); const formatCode = (code) => {
         return code.split('\n').map((line, index) => (
             <div key={index} className="line">
                 {line.includes('loading: true') ? (
@@ -91,17 +91,15 @@ const Preloader = ({ onLoadComplete }) => {
             {/* Logo */}
             <div className="mb-6">
                 <img src="/images/img_union.svg" alt="Logo" className="w-8 h-8 mx-auto animate-pulse" />
-            </div>
-
-            {/* Animated Code Container */}
-            <div className="mb-6 bg-[#1e2128] p-4 rounded-md shadow-lg border border-[#abb2bf]/30 w-[280px] sm:w-[350px] font-fira-code">
-                <div className="flex items-center mb-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>            {/* Animated Code Container */}
+            <div className="mb-8 bg-[#1e2128] p-4 sm:p-5 md:p-6 rounded-md shadow-lg border-2 border-[#abb2bf]/30 w-[280px] xs:w-[320px] sm:w-[400px] md:w-[450px] font-fira-code">
+                <div className="flex items-center mb-3">
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-red-500 rounded-full mr-2"></div>
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-500 rounded-full mr-2"></div>
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full"></div>
                 </div>
 
-                <div className="code-animation text-[#abb2bf] text-xs sm:text-sm whitespace-pre-wrap overflow-hidden">
+                <div className="code-animation text-[#abb2bf] text-xs xs:text-sm sm:text-base whitespace-pre-wrap overflow-hidden">
                     <div className="typing-code font-fira-code">
                         {formatCode(text)}
                         <span className={`cursor ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
@@ -110,7 +108,7 @@ const Preloader = ({ onLoadComplete }) => {
             </div>
 
             {/* Loading progress bar */}
-            <div className="w-48 sm:w-64 bg-[#1e2128] h-1.5 rounded-full overflow-hidden mb-3">
+            <div className="w-60 xs:w-72 sm:w-80 md:w-96 bg-[#1e2128] h-2 sm:h-2.5 rounded-full overflow-hidden mb-4">
                 <div
                     className="h-full bg-[#c778dd]"
                     style={{
@@ -121,7 +119,7 @@ const Preloader = ({ onLoadComplete }) => {
             </div>
 
             {/* Loading percentage */}
-            <div className="text-[#abb2bf] text-xs font-fira-code mb-4">
+            <div className="text-[#abb2bf] text-sm xs:text-base font-fira-code mb-6">
                 {typingComplete ? `Loading portfolio... ${loadingProgress}%` : 'Initializing...'}
             </div>
 

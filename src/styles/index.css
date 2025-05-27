@@ -5,11 +5,15 @@ body {
     font-family: 'Fira Code', monospace;
     overflow-x: hidden;
     width: 100%;
+    font-size: 16px;
+    /* Base font size increased */
 }
 
 html {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Accounts for fixed header */
 }
 
 * {
@@ -102,5 +106,56 @@ html {
 
     50% {
         transform: scale(1.1);
+    }
+}
+
+/* Additional responsive helpers */
+.responsive-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Prevent content overflow on small devices */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve touch targets on mobile */
+button,
+a,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+/* Smooth transitions */
+.link-hover-effect {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.link-hover-effect:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #c778dd;
+    transition: width 0.3s ease;
+}
+
+.link-hover-effect:hover:after {
+    width: 100%;
+}
+
+/* Properly handle breakpoints */
+@media (max-width: 480px) {
+    .xs-hide {
+        display: none;
     }
 }

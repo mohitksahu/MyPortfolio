@@ -2,13 +2,13 @@ import React from 'react';
 
 const SkillCategory = ({ title, skills, className = '' }) => {
   return (
-    <div className={`border border-[#abb2bf] ${className}`}>
-      <h3 className="text-white font-fira-code font-semibold text-sm sm:text-base p-1.5 sm:p-2">{title}</h3>
-      <div className="border-t border-[#abb2bf]"></div>
-      <div className="p-1.5 sm:p-2">
-        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+    <div className={`border-2 border-[#abb2bf] rounded-md shadow-md shadow-[#c778dd]/10 hover:shadow-[#c778dd]/20 transition-shadow duration-300 ${className}`}>
+      <h3 className="text-white font-fira-code font-semibold text-lg sm:text-xl md:text-2xl p-4 sm:p-5">{title}</h3>
+      <div className="border-t-2 border-[#abb2bf]"></div>
+      <div className="p-4 sm:p-5">
+        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
           {skills.map((skill, index) => (
-            <span key={index} className="text-[#abb2bf] font-fira-code text-xs sm:text-sm">{skill}</span>
+            <span key={index} className="text-[#abb2bf] font-fira-code text-sm sm:text-base md:text-lg py-1.5">{skill}</span>
           ))}
         </div>
       </div>
@@ -38,80 +38,78 @@ const SkillsSection = () => {
       title: "Frameworks",
       skills: ["React", "Tensorflow", "Pytorch", "DJango", "Node.js", "Express.js"]
     }
-  ];
-  return (
-    <section id="skills" className="py-8 md:py-16 bg-[#282C33]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">        <div className="flex items-center mb-6 md:mb-12 flex-wrap sm:flex-nowrap">
-        <h2 className="text-2xl sm:text-3xl font-medium font-fira-code mb-2 sm:mb-0">
+  ]; return (
+    <section id="skills" className="py-10 md:py-20 bg-[#282C33]">
+      <div className="container mx-auto px-5 sm:px-7 lg:px-10 max-w-7xl">        <div className="flex items-center mb-8 md:mb-14 flex-wrap sm:flex-nowrap">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium font-fira-code mb-3 sm:mb-0">
           <span className="text-[#c778dd]">#</span>
           <span className="text-white">skills</span>
         </h2>
-        <div className="h-px bg-[#c778dd] flex-grow ml-0 sm:ml-4 w-full sm:w-auto"></div>
+        <div className="h-0.5 bg-[#c778dd] flex-grow ml-0 sm:ml-5 w-full sm:w-auto"></div>
       </div>
 
-        <div className="grid grid-cols-1 gap-6 relative">
-          {/* Decorative elements */}
+        <div className="grid grid-cols-1 gap-6 relative">          {/* Decorative elements */}
           <div className="absolute left-0 top-12 hidden md:block">
-            <div className="grid grid-cols-5 gap-1">
+            <div className="grid grid-cols-5 gap-1.5">
               {[...Array(25)].map((_, i) => (
-                <div key={i} className="w-1 h-1 rounded-full bg-[#abb2bf]"></div>
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#abb2bf]"></div>
               ))}
             </div>
           </div>
 
           <div className="absolute top-2/3 hidden md:block">
-            <div className="grid grid-cols-5 gap-1">
+            <div className="grid grid-cols-5 gap-1.5">
               {[...Array(25)].map((_, i) => (
-                <div key={i} className="w-1 h-1 rounded-full bg-[#abb2bf]"></div>
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#abb2bf]"></div>
               ))}
             </div>
           </div>          <div className="absolute left-[10%] top-1/4 hidden md:block">
-            <div className="border border-[#abb2bf] w-16 h-16"></div>
+            <div className="border-2 border-[#abb2bf] w-20 h-20"></div>
           </div>
 
           <div className="absolute left-[13%] bottom-1/4 hidden md:block">
-            <div className="border border-[#abb2bf] w-12 h-12"></div>
+            <div className="border-2 border-[#abb2bf] w-16 h-16"></div>
           </div>
 
           <div className="absolute left-16 bottom-16 hidden md:block">
-            <div className="w-16 h-16">
+            <div className="w-20 h-20">
               <svg viewBox="0 0 200 100" className="w-full h-full stroke-[#c778dd] fill-none stroke-2">
                 <rect x="10" y="10" width="80" height="80" />
                 <rect x="30" y="30" width="80" height="80" />
               </svg>
             </div>
-          </div>          <div className="flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-6 justify-center">
-            <div className="flex-1 hidden md:block" style={{ minWidth: '120px', maxWidth: '180px' }}>
+          </div>          <div className="flex flex-col md:flex-row md:flex-wrap gap-5 md:gap-8 lg:gap-10 justify-center">
+            <div className="flex-1 hidden md:block" style={{ minWidth: '140px', maxWidth: '200px' }}>
               {/* Empty space for layout balance */}
             </div>
 
-            <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 justify-center md:justify-end flex-1">
+            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 flex-1">
               <SkillCategory
                 title="Languages"
                 skills={skillCategories[0].skills}
-                className="min-w-[140px] sm:min-w-[170px] w-full md:w-auto"
+                className="w-full h-full"
               />
               <SkillCategory
                 title="Databases"
                 skills={skillCategories[1].skills}
-                className="min-w-[140px] sm:min-w-[170px] w-full md:w-auto"
+                className="w-full h-full"
               />
 
               <SkillCategory
                 title="Tools"
                 skills={skillCategories[2].skills}
-                className="min-w-[140px] sm:min-w-[170px] w-full md:w-auto"
+                className="w-full h-full"
               />
               <SkillCategory
                 title="Other"
                 skills={skillCategories[3].skills}
-                className="min-w-[140px] sm:min-w-[170px] w-full md:w-auto"
+                className="w-full h-full"
               />
 
               <SkillCategory
                 title="Frameworks"
                 skills={skillCategories[4].skills}
-                className="min-w-[140px] sm:min-w-[170px] w-full md:w-auto"
+                className="w-full h-full xs:col-span-2 lg:col-span-1"
               />
             </div>
           </div>
