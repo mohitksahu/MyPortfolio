@@ -3,14 +3,13 @@ import React from 'react';
 const ContactsSection = () => {
   return (
     <section id="contacts" className="py-8 md:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex items-center mb-6 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-medium font-fira-code">
-            <span className="text-[#c778dd]">#</span>
-            <span className="text-white">contacts</span>
-          </h2>
-          <div className="h-px bg-[#c778dd] flex-grow ml-4"></div>
-        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">        <div className="flex items-center mb-6 md:mb-12 flex-wrap sm:flex-nowrap">
+        <h2 className="text-2xl sm:text-3xl font-medium font-fira-code mb-2 sm:mb-0">
+          <span className="text-[#c778dd]">#</span>
+          <span className="text-white">contacts</span>
+        </h2>
+        <div className="h-px bg-[#c778dd] flex-grow ml-0 sm:ml-4 w-full sm:w-auto"></div>
+      </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           <div>
             <p className="text-[#abb2bf] font-fira-code mb-6 md:mb-8 max-w-md text-sm sm:text-base">
@@ -34,11 +33,9 @@ const ContactsSection = () => {
                 <div className="flex items-center">
                   <img src="/images/img_discord_blue_gr.svg" alt="Discord" className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
                   <span className="text-[#abb2bf] font-fira-code text-sm sm:text-base">!radon0905</span>
-                </div>
-
-                <div className="flex items-center">
-                  <img src="/images/img_email.svg" alt="Email" className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
-                  <span className="text-[#abb2bf] font-fira-code text-sm sm:text-base">mohitkumarsahu0110@gmail.com</span>
+                </div>                <div className="flex items-center">
+                  <img src="/images/img_email.svg" alt="Email" className="w-6 h-6 sm:w-8 sm:h-8 mr-2 flex-shrink-0" />
+                  <span className="text-[#abb2bf] font-fira-code text-xs xs:text-sm sm:text-base break-all">mohitkumarsahu0110@gmail.com</span>
                 </div>
               </div>
             </div>

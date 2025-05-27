@@ -58,23 +58,23 @@ const Header = () => {
         {isMenuOpen && (
           <div className="fixed top-[60px] sm:top-[72px] left-0 right-0 bg-[#282c33] z-50 p-4 md:hidden border-t border-[#abb2bf]/30 shadow-lg">
             <nav className="flex flex-col space-y-4 font-fira-code">
-              <a href="#home" className="text-white" onClick={(e) => scrollToSection(e, 'home')}>
+              <a href="#home" className="text-white block py-2" onClick={(e) => scrollToSection(e, 'home')}>
                 <span className="text-[#c778dd]">#</span>
                 <span>home</span>
               </a>
-              <a href="#projects" className="text-[#abb2bf]" onClick={(e) => scrollToSection(e, 'projects')}>
+              <a href="#projects" className="text-[#abb2bf] block py-2" onClick={(e) => scrollToSection(e, 'projects')}>
                 <span className="text-[#c778dd]">#</span>
                 <span>works</span>
               </a>
-              <a href="#about-me" className="text-[#abb2bf]" onClick={(e) => scrollToSection(e, 'about-me')}>
+              <a href="#about-me" className="text-[#abb2bf] block py-2" onClick={(e) => scrollToSection(e, 'about-me')}>
                 <span className="text-[#c778dd]">#</span>
                 <span>about-me</span>
               </a>
-              <a href="#contacts" className="text-[#abb2bf]" onClick={(e) => scrollToSection(e, 'contacts')}>
+              <a href="#contacts" className="text-[#abb2bf] block py-2" onClick={(e) => scrollToSection(e, 'contacts')}>
                 <span className="text-[#c778dd]">#</span>
                 <span>contacts</span>
               </a>
-              <div className="flex items-center">
+              <div className="flex items-center py-2">
                 <span className="text-[#abb2bf] font-semibold">EN</span>
                 <img src="/images/img_group_58.svg" alt="Language dropdown" className="ml-1 w-2.5" />
               </div>

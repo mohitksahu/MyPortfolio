@@ -41,14 +41,13 @@ const SkillsSection = () => {
   ];
   return (
     <section id="skills" className="py-8 md:py-16 bg-[#282C33]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex items-center mb-6 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-medium font-fira-code">
-            <span className="text-[#c778dd]">#</span>
-            <span className="text-white">skills</span>
-          </h2>
-          <div className="h-px bg-[#c778dd] flex-grow ml-4"></div>
-        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">        <div className="flex items-center mb-6 md:mb-12 flex-wrap sm:flex-nowrap">
+        <h2 className="text-2xl sm:text-3xl font-medium font-fira-code mb-2 sm:mb-0">
+          <span className="text-[#c778dd]">#</span>
+          <span className="text-white">skills</span>
+        </h2>
+        <div className="h-px bg-[#c778dd] flex-grow ml-0 sm:ml-4 w-full sm:w-auto"></div>
+      </div>
 
         <div className="grid grid-cols-1 gap-6 relative">
           {/* Decorative elements */}

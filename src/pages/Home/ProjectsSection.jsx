@@ -38,33 +38,32 @@ const ProjectsSection = () => {
       liveLink: "#"
     }
   ];
-  return (
-    <section id="projects" className="py-8 md:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex items-center mb-6 md:mb-8 flex-wrap sm:flex-nowrap">
-          <h2 className="text-2xl sm:text-3xl font-medium font-fira-code whitespace-nowrap">
-            <span className="text-[#c778dd]">#</span>
-            <span className="text-white">projects</span>
-          </h2>
-          <div className="h-px bg-[#c778dd] flex-grow ml-4"></div>
-          <a href="#" className="text-white font-fira-code font-medium ml-4 hover:text-[#c778dd] whitespace-nowrap" onClick={viewAllProjects}>
-            View all ~~&gt;
-          </a>
-        </div>        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {projects.map(project => (
-            <Card
-              key={project.id}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-              technologies={project.technologies}
-              liveLink={project.liveLink}
-              cachedLink={project.cachedLink}
-            />
-          ))}
-        </div>
+  return (<section id="projects" className="py-8 md:py-16">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="flex items-center mb-6 md:mb-8 flex-wrap sm:flex-nowrap">
+        <h2 className="text-2xl sm:text-3xl font-medium font-fira-code mb-2 sm:mb-0">
+          <span className="text-[#c778dd]">#</span>
+          <span className="text-white">projects</span>
+        </h2>
+        <div className="h-px bg-[#c778dd] flex-grow ml-0 sm:ml-4 w-full sm:w-auto"></div>
+        <a href="#" className="text-white font-fira-code font-medium mt-2 sm:mt-0 sm:ml-4 hover:text-[#c778dd]" onClick={viewAllProjects}>
+          View all ~~&gt;
+        </a>
+      </div><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {projects.map(project => (
+          <Card
+            key={project.id}
+            image={project.image}
+            title={project.title}
+            description={project.description}
+            technologies={project.technologies}
+            liveLink={project.liveLink}
+            cachedLink={project.cachedLink}
+          />
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 
