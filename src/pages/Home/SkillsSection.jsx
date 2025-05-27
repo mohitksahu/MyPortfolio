@@ -1,18 +1,39 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const SkillCategory = ({ title, skills, className = '' }) => {
+const SkillCategory = ({ title, skills, className = '', index = 0 }) => {
   return (
-    <div className={`border-2 border-[#abb2bf] rounded-md shadow-md shadow-[#c778dd]/10 hover:shadow-[#c778dd]/20 transition-shadow duration-300 ${className}`}>
+    <motion.div
+      className={`border-2 border-[#abb2bf] rounded-md shadow-md ${className}`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{
+        y: -5,
+        boxShadow: "0 10px 25px rgba(199, 120, 221, 0.2)",
+        borderColor: "#c778dd"
+      }}
+    >
       <h3 className="text-white font-fira-code font-semibold text-lg sm:text-xl md:text-2xl p-4 sm:p-5">{title}</h3>
       <div className="border-t-2 border-[#abb2bf]"></div>
       <div className="p-4 sm:p-5">
         <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-          {skills.map((skill, index) => (
-            <span key={index} className="text-[#abb2bf] font-fira-code text-sm sm:text-base md:text-lg py-1.5">{skill}</span>
+          {skills.map((skill, skillIndex) => (
+            <motion.span
+              key={skillIndex}
+              className="text-[#abb2bf] font-fira-code text-sm sm:text-base md:text-lg py-1.5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 + (skillIndex * 0.05) }}
+              whileHover={{ color: "#ffffff", scale: 1.05 }}
+            >
+              {skill}
+            </motion.span>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -38,17 +59,39 @@ const SkillsSection = () => {
       title: "Frameworks",
       skills: ["React", "Tensorflow", "Pytorch", "DJango", "Node.js", "Express.js"]
     }
-  ]; return (
-    <section id="skills" className="py-10 md:py-20 bg-[#282C33]">
-      <div className="container mx-auto px-5 sm:px-7 lg:px-10 max-w-7xl">        <div className="flex items-center mb-8 md:mb-14 flex-wrap sm:flex-nowrap">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium font-fira-code mb-3 sm:mb-0">
-          <span className="text-[#c778dd]">#</span>
-          <span className="text-white">skills</span>
-        </h2>
-        <div className="h-0.5 bg-[#c778dd] flex-grow ml-0 sm:ml-5 w-full sm:w-auto"></div>
-      </div>
+  ];
 
-        <div className="grid grid-cols-1 gap-6 relative">          {/* Decorative elements */}
+  return (
+    <section id="skills" className="py-10 md:py-20 bg-[#282C33]">
+      <div className="container mx-auto px-5 sm:px-7 lg:px-10 max-w-7xl">
+        <motion.div
+          className="flex items-center mb-8 md:mb-14 flex-wrap sm:flex-nowrap"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium font-fira-code mb-3 sm:mb-0">
+            <motion.span
+              className="text-[#c778dd]"
+              whileHover={{ scale: 1.2 }}
+              transition={{ duration: 0.3 }}
+            >
+              #
+            </motion.span>
+            <span className="text-white">skills</span>
+          </h2>
+          <motion.div
+            className="h-0.5 bg-[#c778dd] flex-grow ml-0 sm:ml-5 w-full sm:w-auto"
+            initial={{ scaleX: 0, originX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-6 relative">
+          {/* Decorative elements */}
           <div className="absolute left-0 top-12 hidden md:block">
             <div className="grid grid-cols-5 gap-1.5">
               {[...Array(25)].map((_, i) => (

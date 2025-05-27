@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-center text-[#abb2bf] font-fira-code text-sm sm:text-base">
-            © Copyright 2025. Made by Mohit
+            © Copyright 2025. Made by with ❤️ by Mohit
           </div>
         </div>
       </div>

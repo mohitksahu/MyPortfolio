@@ -73,7 +73,7 @@ const Preloader = ({ onLoadComplete }) => {
                 ) : line.includes('skills:') ? (
                     <>
                         {line.split('skills: ')[0]}
-                        <span className="text-yellow-300">skills</span>: <span className="text-blue-400">[</span><span className="text-green-300">"Web Dev"</span>, <span className="text-green-300">"AI"</span>, <span className="text-green-300">"ML"</span><span className="text-blue-400">]</span>
+                        <span className="text-yellow-300">skills</span>: <span className="text-blue-400">[</span><span className="text-green-300">"Web Dev"</span>, <span className="text-green-300">"AI/ML"</span> <span className="text-blue-400">]</span>
                     </>
                 ) : line.includes('const portfolio') ? (
                     <>

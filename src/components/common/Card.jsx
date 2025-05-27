@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../ui/Button';
 import Tag from '../ui/Tag';
+import { motion } from 'framer-motion';
 
 const Card = ({
   image,
@@ -21,19 +22,45 @@ const Card = ({
         targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    // Otherwise, let the link navigate normally
-  }; return (
-    <div className="border-2 border-[#abb2bf] flex flex-col h-full rounded-md shadow-md hover:shadow-lg hover:shadow-[#c778dd]/20 transition-all duration-300 transform hover:-translate-y-1">
-      <div className="h-[180px] xs:h-[200px] sm:h-[220px] md:h-[250px] overflow-hidden">
-        <img
-          src={image || 'https://via.placeholder.com/400x200?text=Project+Image'}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/400x200?text=Project+Image';
-          }}
-        />
-      </div>
+    // If it's an external link (not starting with #), open in new tab
+    else if (link) {
+      e.preventDefault();
+      window.open(link, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  return (
+    <motion.div
+      className="border-2 border-[#abb2bf] flex flex-col h-full rounded-md shadow-md"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{
+        y: -8,
+        boxShadow: "0 10px 25px rgba(199, 120, 221, 0.2)",
+        borderColor: "#c778dd"
+      }}
+    >      <motion.div
+      className="h-[180px] xs:h-[200px] sm:h-[220px] md:h-[250px] overflow-hidden bg-[#1e2128] flex items-center justify-center"
+      whileHover={{ backgroundColor: "#282c33" }}
+      transition={{ duration: 0.3 }}
+    >
+        {image ? (
+          <motion.img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.6 }}
+          />
+        ) : (
+          <div className="text-center p-4">
+            <div className="text-[#c778dd] text-4xl mb-2">&lt;/&gt;</div>
+            <p className="text-[#abb2bf] text-sm">Project image coming soon</p>
+          </div>
+        )}
+      </motion.div>
 
       <div className="p-4 border-t-2 border-[#abb2bf] overflow-x-auto">
         <div className="flex flex-wrap gap-2 xs:gap-3 mb-3">
@@ -66,7 +93,7 @@ const Card = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
