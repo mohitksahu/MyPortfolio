@@ -1,12 +1,29 @@
+/**
+ * Header Component
+ * 
+ * The main navigation header for the application featuring:
+ * - Responsive design with mobile menu toggle
+ * - Smooth scrolling to page sections
+ * - Visual styling consistent with site theme
+ */
 import React, { useState } from 'react';
 
 const Header = () => {
+  // State to control mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  /**
+   * Toggles the mobile menu open/closed state
+   */
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  /**
+   * Handles smooth scrolling to page sections
+   * @param {Event} e - The click event
+   * @param {string} sectionId - The ID of the target section
+   */
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);

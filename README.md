@@ -1,54 +1,143 @@
-# React + Vite + Tailwind CSS Project
+# Portfolio Project - React + Vite + Three.js
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+![Portfolio Banner](./public/images/img_logo.svg)
 
-## 🚀 Features
+A modern, interactive portfolio website built with the latest web technologies. This project showcases professional work, skills, and contact information in an engaging, visually appealing interface with 3D elements and smooth animations.
 
-- **React 19** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router** - Declarative routing for React applications
+## ✨ Features
+
+- **Interactive 3D Elements** - Engaging Three.js powered 3D models and animations
+- **Modern React (v19)** - Built with the latest React features and patterns
+- **Lightning-fast Vite** - Optimized build tooling for excellent development experience
+- **Responsive Design** - Fully responsive layout works on all device sizes
+- **Animated UI** - Smooth transitions and animations using Framer Motion
+- **Dark Theme** - Sleek dark mode design with accent highlights
+- **Component-Driven** - Modular architecture with reusable components
+- **Clean Code** - Well-documented and organized codebase
+
+## 🔧 Technologies Used
+
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite 6
+- **Styling**: Tailwind CSS
+- **3D Graphics**: Three.js with React Three Fiber
+- **Animations**: Framer Motion
+- **Routing**: React Router v7
+- **Type Checking**: PropTypes
+- **Code Formatting**: Prettier
 
 ## 📋 Prerequisites
 
-- Node.js (v14.x or higher)
-- npm or yarn
+- Node.js (v16.x or higher recommended)
+- npm or yarn package manager
 
+## 🚀 Getting Started
 
-## 🛠️ Installation
+### Installation
 
-1. Install dependencies:
-  ```bash
-  npm install
-  # or
-  yarn install
-  ```
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd react_project
+   ```
 
-2. Start the server:
-  ```bash
-  npm run start
-  # or
-  yarn start
-  ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The site will be available at `http://localhost:5173`
+
+### Building for Production
+
+Build the optimized production version:
+```bash
+npm run build
+# or
+yarn build
+```
+
+Preview the production build:
+```bash
+npm run preview
+# or
+yarn preview
+```
 
 ## 📁 Project Structure
 
 ```
 /
-├── public/              # Static assets
+├── public/               # Static assets and images
+│   └── images/           # Image assets used in the project
+│
 ├── src/
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Page components
-│   ├── styles/          # Global styles and Tailwind configuration
-│   ├── App.jsx          # Main application component
-│   ├── main.jsx         # Application entry point
-│   └── Routes.jsx       # Application routes
-├── index.html           # HTML template
-├── package.json         # Project dependencies and scripts
-├── postcss.config.js    # PostCSS configuration for Tailwind
-├── tailwind.config.js   # Tailwind CSS configuration
-├── vite.config.js       # Vite configuration
+│   ├── components/       # Reusable UI components
+│   │   ├── 3d/           # Three.js 3D components
+│   │   ├── common/       # Common components used across pages
+│   │   └── ui/           # Basic UI elements (buttons, tags, etc.)
+│   │
+│   ├── pages/            # Page components
+│   │   └── Home/         # Homepage sections
+│   │
+│   ├── styles/           # Global styles and Tailwind CSS configuration
+│   ├── App.jsx           # Main application component
+│   ├── main.jsx          # Application entry point
+│   └── Routes.jsx        # Application routing configuration
+│
+├── index.html            # HTML template
+├── package.json          # Project dependencies and scripts
+├── tailwind.config.js    # Tailwind CSS configuration
+└── vite.config.js        # Vite configuration
 ```
+
+## 🧩 Project Sections
+
+- **Hero Section**: Introduction and primary call-to-action
+- **Projects Section**: Showcase of portfolio work
+- **Skills Section**: Technical and professional skills display
+- **About Section**: Personal information and background
+- **Contact Section**: Contact information and form
+- **Quote Section**: Inspirational quote display
+
+## 🔍 Code Quality Features
+
+- Comprehensive commenting and documentation
+- Consistent code style with Prettier formatting
+- Component-based architecture for reusability
+- Prop validation with PropTypes
+- Responsive design best practices
+- Optimized rendering performance
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and works seamlessly across:
+- Desktop/large screens
+- Tablets
+- Mobile devices
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](#) for open tasks.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+Built with ❤️ using React, Vite, Three.js and Tailwind CSS
 
 ## 🧩 Adding Routes
 

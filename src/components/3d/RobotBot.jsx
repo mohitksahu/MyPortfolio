@@ -1,26 +1,45 @@
+/**
+ * Interactive 3D Robot Component
+ * 
+ * A three.js powered 3D robot model that:
+ * - Follows cursor movement with its head
+ * - Features gentle animations
+ * - Includes interactive lighting effects
+ * 
+ * This component uses React Three Fiber for React integration with three.js
+ */
 import React, { useRef, useEffect, useState, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Robot component with head that follows cursor
+/**
+ * Bot - The 3D robot model with animation logic
+ * This component handles the robot's mesh, materials, and animations
+ */
 function Bot() {
+    // Refs for accessing the robot's body parts
     const headRef = useRef();
     const bodyRef = useRef();
+
+    // Access mouse position from Three.js context
     const { mouse } = useThree();
 
-    // Animation for the robot
+    /**
+     * Animation loop that runs on every frame
+     * Controls head tracking and body animation
+     */
     useFrame(({ clock }) => {
         if (headRef.current) {
-            // Follow mouse movement
+            // Calculate head rotation based on mouse position
             const x = (mouse.x * Math.PI) / 4;
             const y = (mouse.y * Math.PI) / 4;
 
-            // Smooth head rotation
+            // Apply smooth lerp transition to head rotation
             headRef.current.rotation.y = THREE.MathUtils.lerp(headRef.current.rotation.y, x, 0.1);
             headRef.current.rotation.x = THREE.MathUtils.lerp(headRef.current.rotation.x, -y, 0.1);
 
-            // Gentle bobbing motion for the body
+            // Create gentle floating animation for the body
             if (bodyRef.current) {
                 const time = clock.getElapsedTime();
                 bodyRef.current.position.y = Math.sin(time) * 0.05;
@@ -95,10 +114,10 @@ function RobotScene() {
             <ambientLight intensity={0.8} />
             <directionalLight position={[0, 10, 5]} intensity={1.2} />
             <pointLight position={[0, 0, 5]} color="#ffffff" intensity={0.5} />
-            
+
             {/* Robot model */}
             <Bot />
-            
+
             {/* Camera controls */}
             <OrbitControls
                 enablePan={false}
@@ -114,17 +133,17 @@ function RobotScene() {
 const RobotBot = ({ className }) => {
     const [hasError, setHasError] = useState(false);
     const [mounted, setMounted] = useState(false);
-    
+
     // Mark component as mounted after a brief delay to ensure DOM is ready
     useEffect(() => {
         const timer = setTimeout(() => {
             setMounted(true);
             console.log("RobotBot: Component mounted and ready for rendering");
         }, 100);
-        
+
         return () => clearTimeout(timer);
     }, []);
-    
+
     // Error boundary
     if (hasError) {
         console.log("RobotBot: Rendering fallback due to error");
@@ -137,15 +156,15 @@ const RobotBot = ({ className }) => {
             </div>
         );
     }
-    
+
     // Main render
     try {
         console.log("RobotBot: Attempting to render 3D scene");
         return (
-            <div 
-                className={className} 
-                style={{ 
-                    backgroundColor: '#282c33', 
+            <div
+                className={className}
+                style={{
+                    backgroundColor: '#282c33',
                     position: 'relative',
                     width: '100%',
                     height: '100%',
@@ -154,7 +173,7 @@ const RobotBot = ({ className }) => {
                 id="robot-container"
             >
                 {/* Debug info */}
-                <div 
+                <div
                     style={{
                         position: 'absolute',
                         top: 5,
@@ -170,11 +189,11 @@ const RobotBot = ({ className }) => {
                 >
                     3D Robot {mounted ? '✓' : '...'}
                 </div>
-                
+
                 {/* Canvas for Three.js */}
                 <Canvas
-                    camera={{ 
-                        position: [0, 0.5, 4], 
+                    camera={{
+                        position: [0, 0.5, 4],
                         fov: 50,
                         near: 0.1,
                         far: 1000
@@ -186,8 +205,8 @@ const RobotBot = ({ className }) => {
                         powerPreference: 'default',
                         failIfMajorPerformanceCaveat: false
                     }}
-                    style={{ 
-                        width: '100%', 
+                    style={{
+                        width: '100%',
                         height: '100%'
                     }}
                 >

@@ -1,7 +1,8 @@
 {
-  "name": "mohit_s_application",
+  "name": "portfolio-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Professional portfolio website built with React, Vite, Three.js and Tailwind CSS",
   "type": "module",
   "scripts": {
     "start": "vite",
@@ -10,7 +11,8 @@
     "preview": "vite preview",
     "serve": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,css,md,json}\"",
-    "vercel-build": "vite build"
+    "vercel-build": "vite build",
+    "lint": "eslint \"src/**/*.{js,jsx}\""
   },
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.3",
